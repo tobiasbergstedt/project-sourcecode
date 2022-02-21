@@ -23,7 +23,7 @@
         await this.axios
           .get(
             'https://api.tvmaze.com/shows/' +
-              this.$route.params.showid +
+              this.$store.state.showId +
               '?embed=cast'
           )
           .then((response) => {

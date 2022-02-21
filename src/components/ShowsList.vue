@@ -81,11 +81,15 @@
 
   <ol class="shows-list container" v-if="shows.length > 0">
     <li :key="show.show.id" v-for="(show, index) in shows">
-      <RouterLink :to="'/show/' + show.show.id">
+      <RouterLink :to="'/show/' + show.show.id" @click="storeShow(index)">
         <img class="poster" :src="getImage(index)" alt="Show Picture" />
       </RouterLink>
       <div class="shows-list-content">
-        <RouterLink class="link-dark lead m-3" :to="'/show/' + show.show.id">
+        <RouterLink
+          class="link-dark lead m-3"
+          :to="'/show/' + show.show.id"
+          @click="storeShow(index)"
+        >
           {{ show.show.name }}
         </RouterLink>
         {{ getYear(index) }}
@@ -93,6 +97,7 @@
         <p v-else>There is no summary for this show.</p>
         <RouterLink
           class="show-link link-dark mx-3 my-2"
+          @click="storeShow(index)"
           :to="'/show/' + show.show.id"
         >
           Read more...
@@ -100,7 +105,6 @@
       </div>
     </li>
   </ol>
-  <p v-if="$store.state.showName.length > 0">{{ $store.state.showName }}</p>
 </template>
 
 <style lang="scss" scoped>

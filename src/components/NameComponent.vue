@@ -1,7 +1,7 @@
 <script>
   export default {
     props: {
-      name: {
+      userName: {
         type: String,
         default: 'John',
         validator: (value) => {
@@ -13,7 +13,5 @@
 </script>
 
 <template>
-  <p>Välkommen, {{ name }}!</p>
+  <p>Välkommen, {{ userName }}!</p>
 </template>
-
-<style lang="scss" scoped></style>
